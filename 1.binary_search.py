@@ -1,49 +1,21 @@
-class Node:
-    def __init__(self,data):
-        self.data = data
-        self.next_node = None
-class LinkedList():
-    def __init__(self):
-        self.head = None
-    
-    def append_node(self,data):
-        new_node = Node(data)
+def binary_search(list,item):
+    low = 0
+    high = len(list) - 1
 
-        if self.head is None:
-            self.head = new_node
+    while low <= high:
+        mid = int((low + high) / 2)
+        guess_number = list[mid]
+        if guess_number == item:
+            return mid
+        if guess_number > item:
+            high = mid - 1
         else:
-            current = self.head
+            low = mid + 1
+    return None
 
-            while current.next_node is not None:
-                current = current.next_node
+my_list = [1,2,3,4,5,6]
 
-            current.next_node = new_node
-            
-    def display_list(self):
-        current = self.head
-        while current is not None:
-            print(current.data)
-            current = current.next_node
-        print('None')
-            
-some_list = LinkedList()
-
-some_list.append_node(1)
-
-some_list.append_node(2)
-
-some_list.append_node(3)
-
-some_list.display_list()
-
-
-
-            
-
-
-
-            
-        
+print(binary_search(my_list,123))
                 
             
             
